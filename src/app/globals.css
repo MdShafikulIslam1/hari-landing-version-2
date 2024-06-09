@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+.holder {
+  width: 90%;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  font-weight: 600;
+  border: 2px solid white;
+  background: linear-gradient(0deg, rgba(254, 86, 0, 1) 0%, rgba(254, 86, 0, 1) 49%, rgba(226, 70, 6, 1) 50%, rgba(226, 70, 6, 1) 100%);
+  border-radius: 20rem;
+  transition: 200ms scale ease;
+}
+
+.btn:hover {
+  scale: 1.1;
+}

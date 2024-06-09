@@ -1,0 +1,12 @@
+export { default as Hero } from "./Hero";
+export { default as WhyUs } from "./WhyUs";
+export { default as Ingridences } from "./Ingridences";
+export { default as ExtraUs } from "./ExtraUs";
+export { default as HairTips } from "./HairTips";
+export { default as Testimonial } from "./Testimonial";
+export { default as Faq } from "./Faq";
+export { default as Offer } from "./Offer";
+export { default as Formula } from "./Formula";
+export { default as Contact } from "./Contact";
+export { default as OrderNow } from "./OrderNow";
+export { default as Footer } from "./Footer";
