@@ -1,8 +1,43 @@
+"use client";
+import { useState } from "react";
 import { NEW_PRICE } from "../../constances";
 import { Clock } from "../common";
 import { InputWrapper } from "../ui/Input";
 
 export default function OrderNow() {
+  const [orderData, setOrderData] = useState({
+    order_id: "123456",
+    phone: "",
+    name: "",
+    api_key: "e1f945820efbf2ac25ed08f29c48c3f4",
+    goods_id: "154",
+    user_id: "Null",
+  });
+
+  const handleOrder = async () => {
+    console.log("order data", orderData);
+    try {
+      // const response = await axios.post(
+      //   "https://www.wellgrow.live/api/lead/create-order",
+      //   orderData
+      // );
+      // if (response.status === 200) {
+      //   console.log(response.data);
+      // }
+    } catch (error) {
+      console.log("order error", error);
+    }
+  };
+
+  const handleChange = (e: any) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setOrderData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   return (
     <section className="" id="order-now-section">
       <div
@@ -17,7 +52,10 @@ export default function OrderNow() {
 
             <div className="px-4 md:px-0 flex flex-col md:flex-row md:items-start gap-8">
               {/* FORM */}
-              <form className="md:w-3/5 flex flex-col gap-4">
+              <form
+                onSubmit={handleOrder}
+                className="md:w-3/5 flex flex-col gap-4"
+              >
                 <InputWrapper icon="/form-1.png">
                   <select className="w-full bg-transparent outline-none text-inherit">
                     <option value="bd">বাংলাদেশ</option>
@@ -25,12 +63,16 @@ export default function OrderNow() {
                 </InputWrapper>
                 <InputWrapper icon="/form-2.png">
                   <input
+                    name="name"
                     className="w-full bg-transparent outline-none text-inherit"
                     placeholder="নাম"
+                    onChange={handleChange}
                   />
                 </InputWrapper>
                 <InputWrapper icon="/form-3.png">
                   <input
+                    name="phone"
+                    onChange={handleChange}
                     className="w-full bg-transparent outline-none text-inherit"
                     placeholder="ফোন নম্বর"
                   />
@@ -40,7 +82,9 @@ export default function OrderNow() {
                   <span className="font-bold text-sm">মূল্য: {NEW_PRICE}</span>
                 </div>
 
-                <button className="w-full px-4 py-2 btn">অর্ডার করুন</button>
+                <button type="submit" className="w-full px-4 py-2 btn">
+                  অর্ডার করুন
+                </button>
               </form>
 
               {/* TIMER */}
@@ -53,7 +97,7 @@ export default function OrderNow() {
                 <p className="text-sm text-center md:text-left">
                   চুলের যত্ন নেওয়ার জন্য Maxi-Growth কমপ্লেক্সের সাহায্যে
                   তাৎক্ষণিকভাবে চুলের গঠন পুনরুদ্ধার করার জন্য একটি এক্সপ্রেস
-                  ট্রিটমেন্ট এবং লোমকূপ উদ্দীপনা!
+                  ট্রিটমেন্ট
                 </p>
               </div>
             </div>
@@ -61,9 +105,10 @@ export default function OrderNow() {
 
           <div className="px-4 md:px-0">
             <p className="text-sm">
-              পণ্যটি প্রত্যয়িত, উপাদানের তালিকা, নির্দেশাবলী এবং ব্যবহারের জন্য
-              ইঙ্গিতগুলি লেবেলে তালিকাভুক্ত করা হয়েছে। পেমেন্ট প্রাপ্তির পরে
-              (ক্যাশ অন ডেলিভারি)।
+              পণ্যটি সনদপ্রাপ্ত, উপাদানের তালিকা, নির্দেশাবলী এবং ব্যবহারের জন্য
+              নির্দেশিকা লেবেলে তালিকাভুক্ত করা হয়েছে। পেমেন্ট প্রাপ্তির পরে
+              (ক্যাশ অন ডেলিভারি)। এটিতে প্রাকৃতিক উপাদান রয়েছে যা ভঙ্গুর,
+              ক্ষতিগ্রস্থ চুলের এবং বিভক্ত প্রান্তে সহায়তা করে।
             </p>
           </div>
         </div>
